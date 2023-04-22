@@ -1,4 +1,6 @@
 const possibleChoices = ["Rock", "Paper", "Scissors"];
+const rounds = 5;
+let score = 0;
 
 function getComputerChoice(){
     return possibleChoices[Math.floor(Math.random()*possibleChoices.length)];
@@ -27,7 +29,7 @@ function printResult(result, playerChoice, computerChoice){
     if (result == 1){
         console.log("You Win! " + playerChoice + " beats " + computerChoice);
     }
-    else if (result == 0){
+    else if (result == -1){
         console.log("You Lose! " + computerChoice + " beats " + playerChoice);
     }
     else{
@@ -40,33 +42,52 @@ function startRound(playerChoice, computerChoice){
         || (playerChoice == "Paper" && computerChoice == "Rock")
         || (playerChoice == "Scissors" && computerChoice == "Paper")) {
             return 1;
-        // return "You Win! " + playerChoice + " beats " + computerChoice;
     }
     
     if ((playerChoice == "Paper" && computerChoice == "Scissors")
         || (playerChoice == "Scissors" && computerChoice == "Rock")
         || (playerChoice == "Rock" && computerChoice == "Paper")) {
-            return 0;
-        // return "You Lose! " + computerChoice + " beats " + playerChoice;
+            return -1;
     }
 
     else {
         return null;
-        // return "You tied!";
     }
 }
 
-let inputArray = getUserInput();
-if (inputArray[0] == false){
-    console.log("Please choose Rock, Paper or Scissors");
-    inputArray = getUserInput();
+function game(){
+    let inputArray = getUserInput();
+    if (inputArray[0] == false){
+        console.log("Please choose Rock, Paper or Scissors");
+        inputArray = getUserInput();
+    }
+
+    let computerChoice = getComputerChoice();
+
+    console.log("User chose " + inputArray[1]);
+    console.log("Computer chose " + computerChoice);
+
+    let result = startRound(inputArray[1], computerChoice)
+    printResult(result, inputArray[1], computerChoice);
+
+    score = score + result;
 }
 
-let computerChoice = getComputerChoice();
+for (let i = 0; i < rounds; i++){
+    game();
+}
 
-console.log("User: " + inputArray[1]);
-console.log("Computer: " + computerChoice);
+console.log(score)
+console.log(rounds)
+if (score > 0){
+    console.log("You won!")
+}
 
-let result = startRound(inputArray[1], computerChoice)
-printResult(result, inputArray[1], computerChoice);
-// console.log(result);
+else if (score < 0){
+    console.log("You lost!")
+}
+
+else {
+    console.log("You tied!") 
+}
+
