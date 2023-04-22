@@ -71,23 +71,24 @@ function game(){
     printResult(result, inputArray[1], computerChoice);
 
     score = score + result;
+    console.log("");
 }
 
 for (let i = 0; i < rounds; i++){
+    console.log("Round " + (i+1));
+    console.log("-----------");
     game();
 }
 
-console.log(score)
-console.log(rounds)
 if (score > 0){
-    console.log("You won!")
+    console.log("You won the game!")
 }
 
 else if (score < 0){
-    console.log("You lost!")
+    console.log("You lost the game!")
 }
 
 else {
-    console.log("You tied!") 
+    console.log("You both tied the game!") 
 }
 
