@@ -29,6 +29,8 @@ body, button {
 
 .options {
     display: flex;
+    align-items: center;
+    height: 170px;
     margin: 35px;
     gap: 30px;
 }
@@ -41,6 +43,16 @@ body, button {
     border: 2px solid;
     width: 180px;
     height: 130px;
+    transition: 0.25s;
+}
+
+button:hover {
+    color: rgb(220 233 108);
+    font-size: 26px;
+    background-color: #92c981;
+    border: 4px solid;
+    width: 200px;
+    height: 150px;
 }
 
 .result-container {
