@@ -1,0 +1,21 @@
+[33mcommit afb5c319bfe6b962739ebaeb0854de0cdc764192[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Nordin <128930417+nordin05@users.noreply.github.com>
+Date:   Wed Apr 19 11:51:21 2023 +0200
+
+    Added getUserInput and checkUserInput
+    
+    Get input from the user, convert input to first letter upprcase string
+    and then compare with the valid choices. If the input is not valid, ask
+    again (only once for now).
+
+[33mcommit 7a809fb820120dab68f9959c9ba431b314a5228f[m
+Author: Nordin <128930417+nordin05@users.noreply.github.com>
+Date:   Wed Apr 19 03:39:32 2023 +0200
+
+    Added getComputerChoice and startRound function
+
+[33mcommit e0ff237d38a2c19c16d3664cbed6c6915521f214[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: nordin05 <128930417+nordin05@users.noreply.github.com>
+Date:   Wed Apr 19 02:53:04 2023 +0200
+
+    Initial commit

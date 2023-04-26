@@ -74,21 +74,21 @@ function game(){
     console.log("");
 }
 
-for (let i = 0; i < rounds; i++){
-    console.log("Round " + (i+1));
-    console.log("-----------");
-    game();
-}
+// for (let i = 0; i < rounds; i++){
+//     console.log("Round " + (i+1));
+//     console.log("-----------");
+//     game();
+// }
 
-if (score > 0){
-    console.log("You won the game!")
-}
+// if (score > 0){
+//     console.log("You won the game!")
+// }
 
-else if (score < 0){
-    console.log("You lost the game!")
-}
+// else if (score < 0){
+//     console.log("You lost the game!")
+// }
 
-else {
-    console.log("You both tied the game!") 
-}
+// else {
+//     console.log("You both tied the game!") 
+// }
 
