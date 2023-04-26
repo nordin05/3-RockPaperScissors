@@ -28,44 +28,50 @@ function startRound(playerChoice, computerChoice){
 }
 
 function game(playerChoice){
-    let computerChoice = getComputerChoice();
+    if ((scoreUser < rounds) && (scoreComp < rounds)){
+        let computerChoice = getComputerChoice();
 
-    console.log("User chose " + playerChoice);
-    console.log("Computer chose " + computerChoice);
+        console.log("User chose " + playerChoice);
+        console.log("Computer chose " + computerChoice);
 
-    let result = startRound(playerChoice, computerChoice);
-    console.log(scoreUser);
-    console.log(scoreComp);
+        let result = startRound(playerChoice, computerChoice);
 
-    resultText.textContent = 'User chose ' + playerChoice + '...';
-    resultText.textContent = 'Computer chose ' + computerChoice + '...';
-    resultText.textContent = result;
+        // Add delays here 
+        resultText.textContent = 'User chose ' + playerChoice + '...';
+        resultText.textContent = 'Computer chose ' + computerChoice + '...';
+        resultText.textContent = result;
 
-    score.textContent = (scoreUser + ' - ' + scoreComp);
-    console.log("");
+        score.textContent = (scoreUser + ' - ' + scoreComp);
+    }
+    else{
+        if (scoreUser > scoreComp){
+            resultText.textContent = 'Congrats, you won!';
+        }
+        else{
+            resultText.textContent = 'Too bad, you lost!';
+        }
+    }
 }
 
 let playerChoice;
 const rockButton = document.querySelector('.rock');
 const paperButton = document.querySelector('.paper');
 const scissorsButton = document.querySelector('.scissors');
-
 const resultText = document.querySelector('.result-text');
 const score = document.querySelector('.score');
 
-console.log(score);
 rockButton.addEventListener('click', () => {
     playerChoice = "Rock";
     game(playerChoice);
-  });
+});
 paperButton.addEventListener('click', () => {
     playerChoice = "Paper";
     game(playerChoice);
-  });
+});
 scissorsButton.addEventListener('click', () => {
     playerChoice = "Scissors";
     game(playerChoice);
-  });
+});
 
 
 
