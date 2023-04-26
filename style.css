@@ -1,11 +1,67 @@
-body {
+body, button {
     margin: 0;
-    background-color: rgb(96 112 141);
+    background-color: rgb(63 116 67);
+    font-family: "Press Start 2P", "consolas", "sans-serif";
 }
 
 .container {
-    background-color: rgb(68 79 110);
+    background-color: rgb(56 96 56);
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.container h1 {
+    color: rgb(220 233 108);
+    font-weight: 900;
+    margin-top: 35px;
+    margin-bottom: 0px;
+    white-space: nowrap;
+}
+
+.container h2 {
+    color: rgb(220 233 108);
+    font-weight: 900;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    white-space: nowrap;
+}
+
+.options {
+    display: flex;
+    margin: 35px;
+    gap: 30px;
+}
+
+.options button {
+    color: rgb(192 221 136);
+    font-size: 20px;
+    background-color: #6fa55e;
+    border-radius: 5px;
+    border: 2px solid;
+    width: 180px;
+    height: 130px;
+}
+
+.result-container {
+    color:#aebf67;
+    margin-bottom: 20px;
+}
+
+.score-container {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    color: aqua;
+    background-color: #6fa55e;
+}
+
+.score-container p {
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.score-container .score {
+    margin-top: 10px;
+    margin-bottom: 0px;
 }

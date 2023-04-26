@@ -74,6 +74,19 @@ function game(){
     console.log("");
 }
 
+let playerChoice;
+const rockButton = document.querySelector('.rock');
+rockButton.addEventListener('click', () => {
+    playerChoice = "Rock";
+  });
+
+
+
+
+
+
+  
+
 // for (let i = 0; i < rounds; i++){
 //     console.log("Round " + (i+1));
 //     console.log("-----------");
