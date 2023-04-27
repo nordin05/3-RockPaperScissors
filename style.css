@@ -126,3 +126,17 @@ button:hover {
     margin-top: 10px;
     margin-bottom: 0px;
 }
+
+.screen {
+    display: flex;
+    justify-content: center;
+    gap: 210px;
+    margin-top: 15px;
+}
+
+.userHP, .compHP {
+    width: 200px;
+    height: 15px;
+    background: linear-gradient(90deg, #15d715 50%,#659762 50%);
+    border-radius: 3px;
+}
