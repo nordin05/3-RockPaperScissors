@@ -9,7 +9,15 @@ body, button {
     display: flex;
     flex-direction: column;
     align-items: center;
+    animation: transitionPadding 3.5s;
+    animation-timing-function: cubic-bezier(0, 0.44, 0.1, 1.01);
 }
+
+@keyframes transitionPadding {
+    0%   { padding-bottom: 100%; }
+    66%  { padding-bottom: 100%; }
+    100% { padding-bottom: 0%;   }
+  }
 
 .container h1 {
     position: relative;
@@ -69,7 +77,6 @@ body, button {
     animation: fadeIn 4.5s;
 }
 
-
 @keyframes fadeIn {
     0% { opacity: 0; }
     66% { opacity: 0; }
@@ -107,6 +114,7 @@ button:hover {
     text-align: center;
     color: #c0dd88;
     background-color: #6fa55e;
+    animation: fadeIn 5.5s;
 }
 
 .score-container p {
