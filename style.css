@@ -159,7 +159,7 @@ button:hover {
 
 .user {
     animation: userAnimation 5s forwards;
-    animation-timing-function: linear;
+    animation-timing-function: cubic-bezier(0.79, 0.01, 0.13, 0.99);
 }
 
 @keyframes userAnimation {
@@ -170,7 +170,7 @@ button:hover {
 
 .comp {
     animation: compAnimation 5s forwards;
-    animation-timing-function: linear;
+    animation-timing-function: cubic-bezier(0.79, 0.01, 0.13, 0.99);
 }
 
 @keyframes compAnimation {

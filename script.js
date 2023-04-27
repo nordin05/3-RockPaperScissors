@@ -39,26 +39,36 @@ function startRound(playerChoice, computerChoice){
 function game(playerChoice){
     if ((scoreUser < rounds) && (scoreComp < rounds)){
         let computerChoice = getComputerChoice();
-
-        console.log("User chose " + playerChoice);
-        console.log("Computer chose " + computerChoice);
-
         let result = startRound(playerChoice, computerChoice);
-        userHP.style.width = calculateHPBars()[0];
-        compHP.style.width = calculateHPBars()[1];
 
-        // Add delays here 
         resultText.textContent = 'User chose ' + playerChoice + '...';
-        resultText.textContent = 'Computer chose ' + computerChoice + '...';
-        resultText.textContent = result;
 
-        score.textContent = (scoreUser + ' - ' + scoreComp);
-        if (scoreUser >= rounds){
-            resultText.textContent = 'Congrats, you won!';
-        }
-        else if (scoreComp >= rounds){
-            resultText.textContent = 'Too bad, you lost!';
-        }
+        text_array = [
+            'Computer chose ' + computerChoice + '...',
+            result,
+        ];
+
+        i = 0;
+        textInterval = setInterval(function() { 
+            resultText.textContent = text_array[i];
+            i = i + 1;
+            if(i == text_array.length){
+                clearInterval(textInterval);
+            }
+        }, 1000);
+
+        setTimeout(function() {
+            userHP.style.width = calculateHPBars()[0];
+            compHP.style.width = calculateHPBars()[1];
+            score.textContent = (scoreUser + ' - ' + scoreComp);
+
+            if (scoreUser >= rounds){
+                resultText.textContent = 'Congrats, you won!';
+            }
+            else if (scoreComp >= rounds){
+                resultText.textContent = 'Too bad, you lost!';
+            }
+          }, 2000);
     }
 }
 
