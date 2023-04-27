@@ -7,6 +7,15 @@ function getComputerChoice(){
     return possibleChoices[Math.floor(Math.random()*possibleChoices.length)];
 }
 
+function calculateHPBars(){
+    frac = 1 - 1 * (scoreComp*(1/rounds));
+    userPercentage = `${frac*100}%`;
+
+    frac = 1 - 1 * (scoreUser*(1/rounds));
+    compPercentage = `${frac*100}%`;
+    return [userPercentage, compPercentage];
+}
+
 function startRound(playerChoice, computerChoice){
     if ((playerChoice == "Rock" && computerChoice == "Scissors")
         || (playerChoice == "Paper" && computerChoice == "Rock")
@@ -35,6 +44,8 @@ function game(playerChoice){
         console.log("Computer chose " + computerChoice);
 
         let result = startRound(playerChoice, computerChoice);
+        userHP.style.width = calculateHPBars()[0];
+        compHP.style.width = calculateHPBars()[1];
 
         // Add delays here 
         resultText.textContent = 'User chose ' + playerChoice + '...';
@@ -59,6 +70,9 @@ const paperButton = document.querySelector('.paper');
 const scissorsButton = document.querySelector('.scissors');
 const resultText = document.querySelector('.result-text');
 const score = document.querySelector('.score');
+const userHP = document.querySelector('.userHP .userhp-progress');
+const compHP = document.querySelector('.compHP .comphp-progress');
+
 
 rockButton.addEventListener('click', () => {
     playerChoice = "Rock";

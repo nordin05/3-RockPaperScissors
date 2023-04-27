@@ -135,8 +135,17 @@ button:hover {
 }
 
 .userHP, .compHP {
+    position: relative;
+    background-color: #659762;
+    border-radius: 4px;
     width: 200px;
     height: 15px;
-    background: linear-gradient(90deg, #15d715 50%,#659762 50%);
-    border-radius: 3px;
+}
+
+.userHP .userhp-progress, .compHP .comphp-progress{
+    position: absolute;
+    background-color: #15d715;
+    border-radius: 4px;
+    height: 100%;
+    width: 100%;
 }
