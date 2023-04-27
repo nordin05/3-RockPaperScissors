@@ -150,15 +150,31 @@ button:hover {
     width: 100%;
 }
 
-.playerIcons {
-    display: flex;
-    justify-content: center;
-    gap: 200px;
-    margin-top: 100px;
-}
-
 .userIcon, .compIcon {
     width: 200px;
     height: 250px;
     background-color: rgb(111, 221, 221);
+    margin-top: 90px;
 }
+
+.user {
+    animation: userAnimation 5s forwards;
+    animation-timing-function: linear;
+}
+
+@keyframes userAnimation {
+    0% { translate: -100vw 0px; scale: 1;}
+    50% { translate: -100vw 0px; scale: 1;}
+    100% { translate: -20px 50px; scale: 1.1;}
+  }
+
+.comp {
+    animation: compAnimation 5s forwards;
+    animation-timing-function: linear;
+}
+
+@keyframes compAnimation {
+    0% { translate: 100vw 0px; scale: 1;}
+    50% { translate: 100vw 0px; scale: 1;}
+    100% { translate: 40px -10px; scale: 0.9;}
+  }
