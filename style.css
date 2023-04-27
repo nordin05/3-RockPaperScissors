@@ -29,8 +29,7 @@ body, button {
     background-color: rgb(56 96 56);
     width: 100%;
     scale: 1 1.2;
-    animation: typing 1.5s steps(19);
-    animation-fill-mode: forwards;
+    animation: typing 1.5s steps(19) forwards;
 }
 
 @keyframes typing{
@@ -40,11 +39,25 @@ body, button {
 }
 
 .container h2 {
+    position: relative;
     color: rgb(220 233 108);
     font-weight: 900;
     margin-top: 20px;
     margin-bottom: 10px;
     white-space: nowrap;
+}
+
+.container h2::after {
+    content: "-";
+    padding: 1px;
+    position: absolute;
+    right: 0;
+    color: rgb(56 96 56);
+    background-color: rgb(56 96 56);
+    width: 100%;
+    scale: 1 1.2;
+    animation: typing 1.5s steps(17) forwards;
+    animation-delay: 1.5s;
 }
 
 .options {
@@ -53,7 +66,15 @@ body, button {
     height: 170px;
     margin: 35px;
     gap: 30px;
+    animation: fadeIn 4.5s;
 }
+
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    66% { opacity: 0; }
+    100% { opacity: 1; }
+  }
 
 .options button {
     color: rgb(192 221 136);
