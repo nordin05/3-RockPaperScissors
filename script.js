@@ -53,12 +53,10 @@ function game(playerChoice){
         resultText.textContent = result;
 
         score.textContent = (scoreUser + ' - ' + scoreComp);
-    }
-    else{
-        if (scoreUser > scoreComp){
+        if (scoreUser >= rounds){
             resultText.textContent = 'Congrats, you won!';
         }
-        else{
+        else if (scoreComp >= rounds){
             resultText.textContent = 'Too bad, you lost!';
         }
     }
@@ -86,29 +84,3 @@ scissorsButton.addEventListener('click', () => {
     playerChoice = "Scissors";
     game(playerChoice);
 });
-
-
-
-
-
-
-  
-
-// for (let i = 0; i < rounds; i++){
-//     console.log("Round " + (i+1));
-//     console.log("-----------");
-//     game();
-// }
-
-// if (score > 0){
-//     console.log("You won the game!")
-// }
-
-// else if (score < 0){
-//     console.log("You lost the game!")
-// }
-
-// else {
-//     console.log("You both tied the game!") 
-// }
-
