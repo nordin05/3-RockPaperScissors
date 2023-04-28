@@ -57,12 +57,12 @@ function displayRoundMoves(playerChoice, computerChoice, result){
 
 function updateScore(playerChoice, computerChoice, result){
     if (result.substring(0,7) == "You won"){
+        userIcon.style.animation = "";
         userIcon.style.animation = "userAttack 2s forwards";
-        console.log("user attack");
     }
     else if (result.substring(0,8) == "You lost"){
+        compIcon.style.animation = "";
         compIcon.style.animation = "compAttack 2s forwards";
-        console.log("comp attack");
     }
 
 
@@ -72,31 +72,36 @@ function updateScore(playerChoice, computerChoice, result){
         score.textContent = (scoreUser + ' - ' + scoreComp);
 
         if (result.substring(0,7) == "You won"){
+            compIcon.style.animation = "";
             compIcon.style.animation = "flashIcon 1.5s forwards";
         }
         else if (result.substring(0,8) == "You lost"){
+            userIcon.style.animation = "";
             userIcon.style.animation = "flashIcon 1.5s forwards";
         }
 
         if (scoreUser >= rounds){
             resultText.textContent = 'Congrats, you won!';
+            setTimeout(function() { 
+                document.querySelector('.comp').style.animation = "FadeOutComp 2s cubic-bezier(0.19, 0, 0, 0.99) forwards";
+            }, 1000);
         }
         else if (scoreComp >= rounds){
             resultText.textContent = 'Too bad, you lost!';
+            setTimeout(function() { 
+                document.querySelector('.user').style.animation = "FadeOutUser 2s cubic-bezier(0.19, 0, 0, 0.99) forwards";
+            }, 1000);
         }
       }, 2000);
 
 }
 
 function game(playerChoice){
-    userIcon.style.animation = "";
-    compIcon.style.animation = "";
     if ((scoreUser < rounds) && (scoreComp < rounds)){
         let computerChoice = getComputerChoice();
         let result = startRound(playerChoice, computerChoice);
         displayRoundMoves(playerChoice, computerChoice, result);
         updateScore(playerChoice, computerChoice, result);
-        // compIcon.style.animation = "compAttack 1.5s forwards";
     }
 }
 

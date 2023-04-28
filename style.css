@@ -206,3 +206,16 @@ button:hover {
     85%   { translate: 100px -20px; animation-timing-function: cubic-bezier(0.19, -0.41, 0, 1.38);}
     100%  { translate: 0px 0px; animation-timing-function: linear;}
   }
+
+  /* FadeOutLoss 3s cubic-bezier(0.19, 0, 0, 0.99) */
+
+  @keyframes FadeOutUser {
+    0%    { translate: -20px 50px; scale: 1.1; opacity: 1;}
+    100%  { translate: -20ppx 300px; scale: 1.1; opacity: 0;}
+  }
+
+  @keyframes FadeOutComp {
+    0%    { translate: 40px -10px; scale: 0.9; opacity: 1;}
+    100%  { translate: 40px 300px; scale: 0.9; opacity: 0;}
+  }
+  
