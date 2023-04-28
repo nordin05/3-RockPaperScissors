@@ -56,13 +56,18 @@ function displayRoundMoves(playerChoice, computerChoice, result){
 }
 
 function updateScore(playerChoice, computerChoice, result){
+    userIcon.style.animation = "";
+    compIcon.style.animation = "";
+
     if (result.substring(0,7) == "You won"){
-        userIcon.style.animation = "";
-        userIcon.style.animation = "userAttack 2s forwards";
+        setTimeout(function() { 
+            userIcon.style.animation = "userAttack 2s forwards";
+        }, 300);
     }
     else if (result.substring(0,8) == "You lost"){
-        compIcon.style.animation = "";
-        compIcon.style.animation = "compAttack 2s forwards";
+        setTimeout(function() { 
+            compIcon.style.animation = "compAttack 2s forwards";
+        }, 300);
     }
 
 
@@ -72,11 +77,9 @@ function updateScore(playerChoice, computerChoice, result){
         score.textContent = (scoreUser + ' - ' + scoreComp);
 
         if (result.substring(0,7) == "You won"){
-            compIcon.style.animation = "";
             compIcon.style.animation = "flashIcon 1.5s forwards";
         }
         else if (result.substring(0,8) == "You lost"){
-            userIcon.style.animation = "";
             userIcon.style.animation = "flashIcon 1.5s forwards";
         }
 
