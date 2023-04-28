@@ -180,13 +180,13 @@ button:hover {
   }
 
 @keyframes flashIcon {
-    0%   {background-color: rgb(111 221 221);}
-    5%   {background-color: rgb(209, 64, 64);}
-    10%  {background-color: rgb(111 221 221);}
-    15%  {background-color: rgb(209, 64, 64);}
-    25%  {background-color: rgb(111 221 221);}
-    35%  {background-color: rgb(209, 64, 64);}
-    45%  {background-color: rgb(111 221 221);}
-    75%  {background-color: rgb(209, 64, 64);}
-    100% {background-color: rgb(111 221 221);}
+    0%   {background-color: rgb(111 221 221); translate: 0px 0px;}
+    5%   {background-color: rgb(209, 64, 64); translate: 10px 10px;}
+    10%  {background-color: rgb(111 221 221); translate: -9px -9px;}
+    15%  {background-color: rgb(209, 64, 64); translate: -7px 7px;}
+    25%  {background-color: rgb(111 221 221); translate: 5px -5px;}
+    35%  {background-color: rgb(209, 64, 64); translate: 3px -3px;}
+    45%  {background-color: rgb(111 221 221); translate: -1px -1px;}
+    75%  {background-color: rgb(111 221 221); translate: 1px 1px;}
+    100% {background-color: rgb(111 221 221); translate: 0px 0px;}
   }
