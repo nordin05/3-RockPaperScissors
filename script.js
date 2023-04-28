@@ -56,18 +56,25 @@ function displayRoundMoves(playerChoice, computerChoice, result){
 }
 
 function updateScore(playerChoice, computerChoice, result){
-    userIcon.style.animation = "";
-    compIcon.style.animation = "";
+    if (result.substring(0,7) == "You won"){
+        userIcon.style.animation = "userAttack 2s forwards";
+        console.log("user attack");
+    }
+    else if (result.substring(0,8) == "You lost"){
+        compIcon.style.animation = "compAttack 2s forwards";
+        console.log("comp attack");
+    }
+
 
     setTimeout(function() {
         userHP.style.width = calculateHPBars()[0];
         compHP.style.width = calculateHPBars()[1];
         score.textContent = (scoreUser + ' - ' + scoreComp);
 
-        if (result == ("You won " + playerChoice + " beats " + computerChoice + "!")){
+        if (result.substring(0,7) == "You won"){
             compIcon.style.animation = "flashIcon 1.5s forwards";
         }
-        else if (result == ("You lost " + computerChoice + " beats " + playerChoice + "!")){
+        else if (result.substring(0,8) == "You lost"){
             userIcon.style.animation = "flashIcon 1.5s forwards";
         }
 
@@ -82,11 +89,14 @@ function updateScore(playerChoice, computerChoice, result){
 }
 
 function game(playerChoice){
+    userIcon.style.animation = "";
+    compIcon.style.animation = "";
     if ((scoreUser < rounds) && (scoreComp < rounds)){
         let computerChoice = getComputerChoice();
         let result = startRound(playerChoice, computerChoice);
         displayRoundMoves(playerChoice, computerChoice, result);
         updateScore(playerChoice, computerChoice, result);
+        // compIcon.style.animation = "compAttack 1.5s forwards";
     }
 }
 
