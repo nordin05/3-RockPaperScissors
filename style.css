@@ -178,3 +178,15 @@ button:hover {
     50% { translate: 100vw 0px; scale: 1;}
     100% { translate: 40px -10px; scale: 0.9;}
   }
+
+@keyframes flashIcon {
+    0%   {background-color: rgb(111 221 221);}
+    5%   {background-color: rgb(209, 64, 64);}
+    10%  {background-color: rgb(111 221 221);}
+    15%  {background-color: rgb(209, 64, 64);}
+    25%  {background-color: rgb(111 221 221);}
+    35%  {background-color: rgb(209, 64, 64);}
+    45%  {background-color: rgb(111 221 221);}
+    75%  {background-color: rgb(209, 64, 64);}
+    100% {background-color: rgb(111 221 221);}
+  }

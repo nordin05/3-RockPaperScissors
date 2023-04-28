@@ -36,50 +36,71 @@ function startRound(playerChoice, computerChoice){
     }
 }
 
+function displayRoundMoves(playerChoice, computerChoice, result){
+    resultText.textContent = 'User chose ' + playerChoice + '...';
+
+    text_array = [
+        'Computer chose ' + computerChoice + '...',
+        result,
+    ];
+
+    i = 0;
+    textInterval = setInterval(function() { 
+        resultText.textContent = text_array[i];
+        i = i + 1;
+        if(i == text_array.length){
+            clearInterval(textInterval);
+        }
+    }, 1000);
+
+}
+
+function updateScore(playerChoice, computerChoice, result){
+    userIcon.style.animation = "";
+    compIcon.style.animation = "";
+
+    setTimeout(function() {
+        userHP.style.width = calculateHPBars()[0];
+        compHP.style.width = calculateHPBars()[1];
+        score.textContent = (scoreUser + ' - ' + scoreComp);
+
+        if (result == ("You won " + playerChoice + " beats " + computerChoice + "!")){
+            compIcon.style.animation = "flashIcon 1.5s forwards";
+        }
+        else if (result == ("You lost " + computerChoice + " beats " + playerChoice + "!")){
+            userIcon.style.animation = "flashIcon 1.5s forwards";
+        }
+
+        if (scoreUser >= rounds){
+            resultText.textContent = 'Congrats, you won!';
+        }
+        else if (scoreComp >= rounds){
+            resultText.textContent = 'Too bad, you lost!';
+        }
+      }, 2000);
+
+}
+
 function game(playerChoice){
     if ((scoreUser < rounds) && (scoreComp < rounds)){
         let computerChoice = getComputerChoice();
         let result = startRound(playerChoice, computerChoice);
-
-        resultText.textContent = 'User chose ' + playerChoice + '...';
-
-        text_array = [
-            'Computer chose ' + computerChoice + '...',
-            result,
-        ];
-
-        i = 0;
-        textInterval = setInterval(function() { 
-            resultText.textContent = text_array[i];
-            i = i + 1;
-            if(i == text_array.length){
-                clearInterval(textInterval);
-            }
-        }, 1000);
-
-        setTimeout(function() {
-            userHP.style.width = calculateHPBars()[0];
-            compHP.style.width = calculateHPBars()[1];
-            score.textContent = (scoreUser + ' - ' + scoreComp);
-
-            if (scoreUser >= rounds){
-                resultText.textContent = 'Congrats, you won!';
-            }
-            else if (scoreComp >= rounds){
-                resultText.textContent = 'Too bad, you lost!';
-            }
-          }, 2000);
+        displayRoundMoves(playerChoice, computerChoice, result);
+        updateScore(playerChoice, computerChoice, result);
     }
 }
 
 let playerChoice;
-const rockButton = document.querySelector('.rock');
-const paperButton = document.querySelector('.paper');
+
+const rockButton     = document.querySelector('.rock');
+const paperButton    = document.querySelector('.paper');
 const scissorsButton = document.querySelector('.scissors');
-const resultText = document.querySelector('.result-text');
-const score = document.querySelector('.score');
-const userHP = document.querySelector('.userHP .userhp-progress');
-const compHP = document.querySelector('.compHP .comphp-progress');
+const resultText     = document.querySelector('.result-text');
+const score          = document.querySelector('.score');
+const userHP         = document.querySelector('.userHP .userhp-progress');
+const userIcon       = document.querySelector('.userIcon');
+const compHP         = document.querySelector('.compHP .comphp-progress');
+const compIcon       = document.querySelector('.compIcon');
 
 
 rockButton.addEventListener('click', () => {
